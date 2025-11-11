@@ -11,7 +11,6 @@ struct Args {
     /// Number of passwords to generate
     #[arg(long, default_value_t = 1)]
     count: usize,
-
 }
 
 fn main() {
@@ -34,15 +33,12 @@ fn main() {
         std::process::exit(1);
     }
 
-
     for _count in 0..args.count {
         let mut pwd = String::from(" ");
         for _length in 0..args.length {
-            // let i = task_rng().gen_range(0, charset.len());
             let rng= rand::random_range(0.. charset.len());
             pwd.push(charset[rng]);
         }
         println!("{}", pwd)
     }
-
 }
